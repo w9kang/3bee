@@ -1,0 +1,46 @@
+<!doctype html>
+<title>Quiz</title>
+
+<img id='image' alt='image' style="height:300px">
+<br>
+<button type='button' onclick=select3()>3s</button>
+<button type='button' onclick=selectB()>bees</button>
+<br>
+<p>Total</p>
+<p id='total'>0/0</p>
+
+<script>
+    let order = {{ order|safe }};
+    let i = 0;
+    let total = 0;
+
+    function select3() {
+        updateTotal('3');
+        updateImage();
+    }
+
+    function selectB() {
+        updateTotal('b');
+        updateImage();
+    }
+
+    function updateTotal(selection) {
+        if (i >= order.length) return;
+
+        if (selection == order[i][1]) {
+            total += 1;
+        }
+        i += 1;
+
+        document.getElementById('total').innerHTML = total + '/' + i;
+    }
+
+    function updateImage() {
+        if (i >= order.length) return;
+
+        let path = '/static' + order[i];
+        document.getElementById('image').src = path;
+    }
+
+    updateImage();
+</script>

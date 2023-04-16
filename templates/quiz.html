@@ -6,6 +6,8 @@
 <button type='button' onclick=select3()>3s</button>
 <button type='button' onclick=selectB()>bees</button>
 <br>
+<p>Time</p>
+<p id='time'>0s</p>
 <p>Total</p>
 <p id='total'>0/0</p>
 
@@ -13,6 +15,12 @@
     let order = {{ order|safe }};
     let i = 0;
     let total = 0;
+    let time = 0;
+
+    function updateTime() {
+        time += 1;
+        document.getElementById('time').innerHTML = time + 's';
+    }
 
     function select3() {
         updateTotal('3');
@@ -36,11 +44,15 @@
     }
 
     function updateImage() {
-        if (i >= order.length) return;
+        if (i >= order.length) {
+            clearInterval(interval);
+            return;
+        }
 
         let path = '/static' + order[i];
         document.getElementById('image').src = path;
     }
 
+    let interval = setInterval(updateTime, 1000);
     updateImage();
 </script>

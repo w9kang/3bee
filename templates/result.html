@@ -1,0 +1,30 @@
+<!doctype html>
+<title>Result</title>
+
+{% set adjusted_time = time + (60 - total) * 5 %}
+
+{% if adjusted_time <= 60 %}
+    <h1>Result: <span style="color: green">PASS</span></h1>
+    <p>
+        Wow! You are an outstanding student bot! So outstanding, in fact, that
+        we may <a href='https://uwaterloo.ca/secretariat/policies-procedures-guidelines/policy-71'>
+        investigate</a> your performance.
+    </p>
+    <img src='/static/pass.gif' alt='pass' style="width:500px">
+{% elif adjusted_time <= 120 %}
+    <h1>Result: <span style="color: red">FAIL</span></h1>
+    <p>
+        You had a decent performance. Keep up the work, and we may keep you for
+        the next ... iteration.
+    </p>
+    <img src='/static/fail.png' alt='fail' style="width:500px">
+{% else %}
+    <img src='/static/incinerator.png' alt='incinerator' style="width:500px">
+{% endif %}
+
+<p>Time: {{ time }} seconds</p>
+<p>Total: {{ total }}/60</p>
+<p>
+    Adjusted Time: {{ time }}-second duration +
+    {{ (60 - total) * 5 }}-second penalty = {{ adjusted_time }} seconds
+</p>

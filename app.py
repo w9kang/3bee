@@ -10,10 +10,10 @@ app = Flask(__name__)
 def home():
     return render_template('home.html')
 
-@app.route('/score/')
-@app.route('/score/<int:time>')
-def score(time=0):
-    return render_template('score.html', time=time)
+@app.route('/result/')
+@app.route('/result/<int:time>/<int:total>')
+def result(time=0, total=0):
+    return render_template('result.html', time=time, total=total)
 
 @app.route('/quiz/')
 def quiz():

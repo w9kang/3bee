@@ -2,8 +2,6 @@
 A web application that challenges users to identify 3s and bees as quickly and
 accurately as possible.
 
-![sorterbot](static/sorterbot.gif)
-
 ## Installation
 Create an environment
 

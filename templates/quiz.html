@@ -10,6 +10,9 @@
 <p id='time'>0s</p>
 <p>Total</p>
 <p id='total'>0/0</p>
+<button id='result' type='button' style='display: none;'>
+    Show Result
+</button>
 
 <script>
     let order = {{ order|safe }};
@@ -46,11 +49,17 @@
     function updateImage() {
         if (i >= order.length) {
             clearInterval(interval);
+            document.getElementById('result').onclick = showResult;
+            document.getElementById('result').style.display = 'inline';
             return;
         }
 
         let path = '/static' + order[i];
         document.getElementById('image').src = path;
+    }
+
+    function showResult() {
+        location.href = '/result/' + time + '/' + total;
     }
 
     let interval = setInterval(updateTime, 1000);

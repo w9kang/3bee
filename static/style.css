@@ -1,0 +1,35 @@
+body {
+    background: #0f0f23;
+    color: #cccccc;
+    font-family: monospace;
+    font-size: 14pt;
+}
+
+a {
+    text-decoration: none;
+    color: #009900;
+}
+
+img {
+    height: 300px;
+}
+
+button {
+    background: #009900;
+    border-color: #009900;
+    color: #cccccc;
+    font-family: monospace;
+    font-size: 14pt;
+}
+
+#result {
+    display: none;
+}
+
+#pass {
+    color: green;
+}
+
+#fail {
+    color: red;
+}

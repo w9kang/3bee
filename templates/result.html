@@ -1,25 +1,26 @@
 <!doctype html>
 <title>Result</title>
+<link rel='stylesheet' type='text/css' href='/static/style.css'>
 
 {% set adjusted_time = time + (60 - total) * 5 %}
 
 {% if adjusted_time <= 60 %}
-    <img src='/static/pass.gif' alt='pass' style="height:300px">
-    <h1>Result: <span style="color: green">PASS</span></h1>
+    <img src='/static/pass.gif'>
+    <h1>Result: <span id='pass'>PASS</span></h1>
     <p>
         Wow! You are an outstanding student bot! So outstanding, in fact, that
         we may <a href='https://uwaterloo.ca/secretariat/policies-procedures-guidelines/policy-71'>
         investigate</a> your performance.
     </p>
 {% elif adjusted_time <= 120 %}
-    <img src='/static/fail.png' alt='fail' style="height:300px">
-    <h1>Result: <span style="color: red">FAIL</span></h1>
+    <img src='/static/fail.png'>
+    <h1>Result: <span id='fail'>FAIL</span></h1>
     <p>
         You had a decent performance. Keep up the work, and we may keep you for
         the next ... iteration.
     </p>
 {% else %}
-    <img src='/static/incinerator.png' alt='incinerator' style="height:300px">
+    <img src='/static/incinerator.png'>
 {% endif %}
 
 <p>Time: {{ time }} seconds</p>
@@ -29,5 +30,5 @@
     {{ (60 - total) * 5 }}-second penalty = {{ adjusted_time }} seconds
 </p>
 
-<button type='button' onclick="location.href='/quiz';">Retry</button>
-<button type='button' onclick="location.href='/';">Home</button>
+<a href='/quiz'>Retry</a>
+<a href='/'>Home</a>

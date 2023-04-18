@@ -10,58 +10,7 @@
 <p id='time'>0s</p>
 <p>Total</p>
 <p id='total'>0/0</p>
-<button id='result' type='button' style='display: none;'>
-    Show Result
-</button>
+<button id='result' type='button' style='display: none;'>Show Result</button>
 
-<script>
-    let order = {{ order|safe }};
-    let i = 0;
-    let total = 0;
-    let time = 0;
-
-    function updateTime() {
-        time += 1;
-        document.getElementById('time').innerHTML = time + 's';
-    }
-
-    function select3() {
-        updateTotal('3');
-        updateImage();
-    }
-
-    function selectB() {
-        updateTotal('b');
-        updateImage();
-    }
-
-    function updateTotal(selection) {
-        if (i >= order.length) return;
-
-        if (selection == order[i][1]) {
-            total += 1;
-        }
-        i += 1;
-
-        document.getElementById('total').innerHTML = total + '/' + i;
-    }
-
-    function updateImage() {
-        if (i >= order.length) {
-            clearInterval(interval);
-            document.getElementById('result').onclick = showResult;
-            document.getElementById('result').style.display = 'inline';
-            return;
-        }
-
-        let path = '/static' + order[i];
-        document.getElementById('image').src = path;
-    }
-
-    function showResult() {
-        location.href = '/result/' + time + '/' + total;
-    }
-
-    let interval = setInterval(updateTime, 1000);
-    updateImage();
-</script>
+<script>let order = {{ order|safe }};</script>
+<script src='/static/quiz.js'></script>

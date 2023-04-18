@@ -21,6 +21,8 @@ Run the application
 `flask run`
 
 ## Credits
-Inspired by
-["How Do Machines Learn?"](https://www.cgpgrey.com/blog/how-do-machines-learn)
-Video by CGP Grey
+UX inspired by
+[How Do Machines Learn?](https://www.cgpgrey.com/blog/how-do-machines-learn)
+video by CGP Grey
+
+UI inspired by [Advent of Code](https://adventofcode.com/) design by Eric Wastl

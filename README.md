@@ -2,7 +2,7 @@
 A web application that challenges users to identify 3s and bees as quickly and
 accurately as possible.
 
-| | | |
+| Home | Quiz | Result |
 | - | - | - |
 | ![home](demo/home.png) | ![quiz](demo/quiz.gif) | ![result](demo/result.png) |
 
